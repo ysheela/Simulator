@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace sample
+namespace inningssimulator
 {
   public class PlayTypesValidator
   {
@@ -12,7 +12,7 @@ namespace sample
       bool isValid = playTypes.All(a => InningsConstants.VALID_PLAYTYPES.Contains(a.Trim()));
       if (isValid == false)
       {
-        throw new Exception(String.Format("Invalid Play Types %s", string.Join(",", playTypes)));
+        throw new Exception(String.Format("Invalid Play Types {0}", string.Join(",", playTypes)));
       }
     }
   }

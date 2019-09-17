@@ -1,5 +1,5 @@
 
-namespace sample.rules.impl
+namespace inningssimulator.rules.impl
 {
   public class DoubleBaseHitterRule : BaseHitterRule
   {

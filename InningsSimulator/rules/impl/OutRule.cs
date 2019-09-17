@@ -1,9 +1,9 @@
 
 using System.Collections.Generic;
 
-namespace sample.rules.impl
+namespace inningssimulator.rules.impl
 {
-  public class OutRule : BaseRule
+  public class OutRule : AbstractBaseRule
   {
     public OutRule() : base(InningsConstants.OUT)
     {

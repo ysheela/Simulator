@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using sample.rules;
-using sample.rules.impl;
+using inningssimulator.rules;
+using inningssimulator.rules.impl;
 
-namespace sample
+namespace inningssimulator
 {
   public class InningsPlayTypesCalculator
   {
@@ -20,11 +20,11 @@ namespace sample
       initializeRules();
     }
 
-    public void process(String[] playTypes)
+    public InningsResults process(String[] playTypes)
     {
       log.Info("Processing Innings " + string.Join(", ", playTypes));
 
-      initializeInnings();
+      allPlayers = new List<IPlayerDetails>();
 
       int playerId = 1;
 
@@ -34,52 +34,22 @@ namespace sample
         IPlayerDetails batter = new PlayerDetails(string.Format("P{0}", playerId));
         allPlayers.Add(batter);
 
-        IRule rule = allRules.Find(x => x.playType == playType.Trim());
+        IRule rule = allRules.Find(x => x.playType.ToLower() == playType.Trim().ToLower());
         if (rule == null)
         {
           throw new Exception(String.Format("Cannot find the rule associated with play type {0}", playType));
         }
 
-        List<IPlayerDetails> playersOnField = allPlayers.FindAll(x => x.completedRun == false);
+        List<IPlayerDetails> playersOnField = allPlayers.FindAll(x => x.scoredRun == false);
         bool isLast = (i == playTypes.Length - 1);
         rule.process(playersOnField, isLast);
-
-        processPlayers(allPlayers);
         playerId++;
       }
 
-      calculateResults(allPlayers);
+      InningsResults results = new InningsResults(allPlayers);
+      log.Info(String.Format("Results are : Bases: {0}; Runs {1}, Outs {2}", results.bases, results.totalRuns, results.totalOuts));
+      return results;
     }
-
-    private void calculateResults(List<IPlayerDetails> allPlayers)
-    {
-      List<IPlayerDetails> playersOnField = allPlayers.FindAll(x => x.completedRun == false);
-      int playerOnBaseOne = (playersOnField.Find(x => x.position == 1) != null) ? 1 : 0;
-      int playerOnBaseTwo = (playersOnField.Find(x => x.position == 2) != null) ? 1 : 0;
-      int playerOnBaseThree = (playersOnField.Find(x => x.position == 3) != null) ? 1 : 0;
-
-      string bases = String.Format("{0}{1}{2}", playerOnBaseOne, playerOnBaseTwo, playerOnBaseThree);
-      int runs = allPlayers.Count(x => x.completedRun);
-      int outs = allPlayers.Sum(x => x.totalOuts);
-      log.Info(String.Format("Results are : Bases: {0}; Runs {1}, Outs {2}", bases, runs, outs));
-    }
-
-    private void processPlayers(List<IPlayerDetails> allPlayersOnField)
-    {
-      foreach (IPlayerDetails details in allPlayersOnField)
-      {
-        if (details.position > 3)
-        {
-          details.completedRun = true;
-        }
-      }
-    }
-
-    private void initializeInnings()
-    {
-      allPlayers = new List<IPlayerDetails>();
-    }
-
 
     private void initializeRules()
     {

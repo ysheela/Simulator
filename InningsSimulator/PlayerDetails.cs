@@ -3,20 +3,37 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace sample
+namespace inningssimulator
 {
+
   public class PlayerDetails : IPlayerDetails
   {
+    private int positionValue;
+
     public PlayerDetails(string idValue)
     {
       position = 0;
-      id = idValue;
+      playerId = idValue;
     }
-    public int position { get; set; }
+    public int position
+    {
+      get
+      {
+        return positionValue;
+      }
+      set
+      {
+        positionValue = value;
+        if (positionValue > 3)
+        {
+          scoredRun = true;
+        }
+      }
+    }
 
-    public string id { get; set; }
+    public string playerId { get; set; }
 
-    public bool completedRun { get; set; }
+    public bool scoredRun { get; set; }
 
     public int totalOuts { get; set; }
 

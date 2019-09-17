@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace sample
+namespace inningssimulator
 {
   public class InningsConstants
   {

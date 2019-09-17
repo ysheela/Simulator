@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Xml;
 
-namespace sample
+namespace inningssimulator
 {
   class Program
   {

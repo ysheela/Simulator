@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace sample.rules
+namespace inningssimulator.rules
 {
   public interface IRule
   {

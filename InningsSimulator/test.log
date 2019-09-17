@@ -1,0 +1,10 @@
+2019-09-16 15:27:13,180 [1] INFO inningssimulator.Program - Welcome to Innings Simulator!
+2019-09-16 15:27:13,263 [1] INFO inningssimulator.InningsConsoleReader - 
+Enter play types for the inning. Use ',' as delimter. Example 1b,2b,2b
+2019-09-16 16:28:39,557 [1] INFO inningssimulator.Program - Welcome to Innings Simulator!
+2019-09-16 16:28:39,647 [1] INFO inningssimulator.InningsConsoleReader - 
+Enter play types for the inning. Use ',' as delimter. Example 1b,2b,2b
+2019-09-16 16:28:42,573 [1] INFO inningssimulator.InningsPlayTypesCalculator - Processing Innings 1b
+2019-09-16 16:28:42,588 [1] INFO inningssimulator.InningsPlayTypesCalculator - Results are : Bases: 100; Runs 0, Outs 0
+2019-09-16 16:28:42,589 [1] INFO inningssimulator.InningsConsoleReader - 
+Enter play types for the inning. Use ',' as delimter. Example 1b,2b,2b

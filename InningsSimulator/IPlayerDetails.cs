@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace sample
+namespace inningssimulator
 {
   public interface IPlayerDetails
   {
+    string playerId { get; set; }
     int position { get; set; }
 
-    bool completedRun { get; set; }
+    bool scoredRun { get; set; }
 
     bool isHomeRun { get; set; }
 

@@ -1,9 +1,9 @@
 
 using System.Collections.Generic;
 
-namespace sample.rules.impl
+namespace inningssimulator.rules.impl
 {
-  public class ErrorRule : BaseRule
+  public class ErrorRule : AbstractBaseRule
   {
     public ErrorRule() : base(InningsConstants.ERROR)
     {

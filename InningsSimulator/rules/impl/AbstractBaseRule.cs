@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace sample.rules.impl
+namespace inningssimulator.rules.impl
 {
-  public abstract class BaseRule : IRule
+  public abstract class AbstractBaseRule : IRule
   {
-    public BaseRule(string playTypeValue)
+    public AbstractBaseRule(string playTypeValue)
     {
       playType = playTypeValue;
     }
