@@ -22,4 +22,6 @@ Assumptions:
   * dotnet run
 * Execute following commands to run the tests in InningsSimulatorTests directory.
   * dotnet test
+  * Tests have been added to validate scenarios. Please refer to the tests in InningsPlayTypesCalculatorTest
+
   
